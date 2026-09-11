@@ -1,0 +1,2 @@
+PASS: 7 actual UI renders, 1080x1920 RGB PNG. In-memory example workout data. Original user data unchanged.
+2026-09-11T00:22:55.2552409Z

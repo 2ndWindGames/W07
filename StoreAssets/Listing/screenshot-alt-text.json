@@ -1,0 +1,52 @@
+[
+  {
+    "file": "01-home.png",
+    "altText": {
+      "ko-KR": "목표 180 step/min과 사운드, 운동 시간, 달리기 시작 버튼이 있는 런비트 홈",
+      "en-US": "RunBeat home with a 180 step/min target, sound, duration and start controls"
+    }
+  },
+  {
+    "file": "02-running.png",
+    "altText": {
+      "ko-KR": "목표 180 step/min, 운동 시간 12분 34초와 일시정지·종료 버튼이 있는 러닝 화면",
+      "en-US": "Running screen with a 180 step/min target, 12:34 elapsed and pause and stop controls"
+    }
+  },
+  {
+    "file": "03-sound.png",
+    "altText": {
+      "ko-KR": "세 가지 박자음, 앱 음량과 매 걸음·두 걸음 박자 설정",
+      "en-US": "Three beat sounds, app volume and a beat for every step or every two steps"
+    }
+  },
+  {
+    "file": "04-duration.png",
+    "altText": {
+      "ko-KR": "10분, 20분, 30분, 자유 러닝을 고르는 운동 시간 설정",
+      "en-US": "Workout duration choices for 10, 20 or 30 minutes, or an open-ended run"
+    }
+  },
+  {
+    "file": "05-music.png",
+    "altText": {
+      "ko-KR": "목표 케이던스에 맞는 음악 카드와 장르·즐겨찾기 필터",
+      "en-US": "Music cards matched to the target cadence with genre and favorites filters"
+    }
+  },
+  {
+    "file": "06-history.png",
+    "altText": {
+      "ko-KR": "기기에 저장된 총 운동 시간과 최근 운동 기록의 예시",
+      "en-US": "Example of total session time and recent workouts stored on the device"
+    }
+  },
+  {
+    "file": "07-session-detail.png",
+    "altText": {
+      "ko-KR": "운동 20분의 실행 시간과 170·175·180 목표 구간별 기록 예시",
+      "en-US": "Example of a 20-minute session with target segments of 170, 175 and 180 steps per minute"
+    }
+  }
+]
+

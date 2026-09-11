@@ -1,0 +1,90 @@
+{
+  "assets": [
+    {
+      "file": "GooglePlay\\feature-graphic\\runbeat-feature-1024x500.png",
+      "width": 1024,
+      "height": 500,
+      "mode": "RGB",
+      "bytes": 576820,
+      "status": "PASS"
+    },
+    {
+      "file": "GooglePlay\\icon\\runbeat-icon-512.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "bytes": 222827,
+      "status": "PASS"
+    },
+    {
+      "file": "GooglePlay\\screenshots\\ko-KR\\01-home.png",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB",
+      "bytes": 126701,
+      "status": "PASS"
+    },
+    {
+      "file": "GooglePlay\\screenshots\\ko-KR\\02-running.png",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB",
+      "bytes": 126542,
+      "status": "PASS"
+    },
+    {
+      "file": "GooglePlay\\screenshots\\ko-KR\\03-sound.png",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB",
+      "bytes": 120844,
+      "status": "PASS"
+    },
+    {
+      "file": "GooglePlay\\screenshots\\ko-KR\\04-duration.png",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB",
+      "bytes": 107718,
+      "status": "PASS"
+    },
+    {
+      "file": "GooglePlay\\screenshots\\ko-KR\\05-music.png",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB",
+      "bytes": 631267,
+      "status": "PASS"
+    },
+    {
+      "file": "GooglePlay\\screenshots\\ko-KR\\06-history.png",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB",
+      "bytes": 146739,
+      "status": "PASS"
+    },
+    {
+      "file": "GooglePlay\\screenshots\\ko-KR\\07-session-detail.png",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB",
+      "bytes": 137208,
+      "status": "PASS"
+    }
+  ],
+  "listing": [
+    {
+      "locale": "ko-KR",
+      "titleCharacters": 13,
+      "shortDescriptionCharacters": 43
+    },
+    {
+      "locale": "en-US",
+      "titleCharacters": 27,
+      "shortDescriptionCharacters": 79
+    }
+  ],
+  "screenshotSource": "Actual Unity UI with in-memory example workout data",
+  "status": "PASS"
+}

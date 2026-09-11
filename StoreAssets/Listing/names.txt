@@ -1,0 +1,8 @@
+한글 이름: 런비트
+영문 이름: RunBeat
+
+한글 등록명: 런비트 - 러닝 메트로놈
+영문 등록명: RunBeat - Running Metronome
+
+패키지 이름: com.secondwindgames.runbeat
+

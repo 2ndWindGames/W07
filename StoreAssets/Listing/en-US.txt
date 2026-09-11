@@ -1,0 +1,23 @@
+RunBeat - Running Metronome
+
+Find your running rhythm with adjustable beats, session history and music links
+
+Find your running rhythm with RunBeat.
+
+Choose a target from 100 to 220 steps per minute and follow a steady beat. Pick a soft electronic tone, wood click or clear bell, with a beat on every step or every two steps.
+
+Features
+• Adjustable target cadence from 100 to 220 steps per minute
+• Three beat sounds with volume preview
+• 10, 20 or 30 minute sessions, or an open-ended run
+• Three-second countdown, pause and resume
+• Background beat playback and lock screen controls
+• Session duration and target segments saved on your device
+• Music links matched to your target tempo, with favorites
+
+Music opens in the YouTube app or your browser. Opening music pauses the metronome; return to RunBeat to resume it manually.
+
+RunBeat records your chosen targets and active session time. It does not measure GPS distance or your actual cadence. No account is required. Your session history and preferences stay on your device.
+
+The current app interface is in Korean.
+
