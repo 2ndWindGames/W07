@@ -48,8 +48,6 @@ namespace RunBeat
             catalog = resource ? JsonUtility.FromJson<MusicCatalog>(resource.text) : new MusicCatalog();
             artwork["LimeFlow"] = Resources.Load<Texture2D>("RunBeat/LimeFlow");
             artwork["Sunset"] = Resources.Load<Texture2D>("RunBeat/Sunset");
-            if (Application.platform == RuntimePlatform.Android && !Application.isEditor) Engine = new AndroidRunEngine();
-            else Engine = new LocalRunEngine(gameObject);
             panel = ScriptableObject.CreateInstance<PanelSettings>();
             panel.scaleMode = PanelScaleMode.ScaleWithScreenSize; panel.referenceResolution = new Vector2Int(390, 844);
             panel.screenMatchMode = PanelScreenMatchMode.MatchWidthOrHeight; panel.match = 0;
@@ -66,6 +64,26 @@ namespace RunBeat
             previewClips = new[] { LocalRunEngine.MakeSound(0), LocalRunEngine.MakeSound(1), LocalRunEngine.MakeSound(2) };
             previews = new AudioSource[4];
             for (int i = 0; i < previews.Length; i++) { previews[i] = gameObject.AddComponent<AudioSource>(); previews[i].playOnAwake = false; }
+            InitializeEngine();
+        }
+        void InitializeEngine()
+        {
+            try
+            {
+                if (Application.platform == RuntimePlatform.Android && !Application.isEditor) Engine = new AndroidRunEngine();
+                else Engine = new LocalRunEngine(gameObject);
+            }
+            catch (Exception ex)
+            {
+                // Keep a visible, actionable screen if the native bridge cannot start.
+                Debug.LogException(ex);
+                root.Clear(); safe = Element(root, "safe"); ApplySafeArea();
+                var error = Element(safe, "card");
+                Label(error, "앱을 시작하지 못했어요", "empty-title");
+                Label(error, "오디오 기능을 준비하지 못했어요.\n다시 시도하거나 앱을 최신 버전으로 업데이트해 주세요.", "empty-copy");
+                ActionButton(error, "다시 시도", "play", InitializeEngine, "retry-startup", true);
+                return;
+            }
             initialized = true;
             lastStatus = Engine.State.current.status; lastSessionId = Engine.State.current.id;
             Navigate(Engine.State.current.IsOpen ? "run" : "home");
@@ -407,7 +425,7 @@ namespace RunBeat
             }, "setting-row danger");
             Button(body, "사용 안내", ShowHelp, "setting-row");
             Button(body, "오픈소스 라이선스", () => { var sheet = Sheet("오픈소스 라이선스"); Label(sheet, "Noto Sans KR · Noto Sans Black\nSIL Open Font License 1.1\n\n글꼴의 저작권 고지와 전체 라이선스를 확인할 수 있습니다.", "body-copy"); Button(sheet, "전체 라이선스 보기", () => { var full = Sheet("SIL Open Font License"); foreach (string asset in new[] { "Font-LICENSE", "NotoSans-LICENSE" }) { var license = Resources.Load<TextAsset>("RunBeat/" + asset); if (license) Label(full, license.text, "body-copy"); } }, "secondary"); }, "setting-row");
-            Label(body, "런비트 1.0.0\nSecondWindGames", "notice");
+            Label(body, "런비트 " + Application.version + "\nSecondWindGames", "notice");
             Label(body, "FIND YOUR RHYTHM", "footer");
         }
         void ShowPrivacy()

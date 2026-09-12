@@ -3,7 +3,12 @@ apply plugin: 'com.android.library'
 android {
     namespace 'com.secondwindgames.runbeat.nativeaudio'
     compileSdk 36
-    defaultConfig { minSdk 26; targetSdk 36 }
+    defaultConfig {
+        minSdk 26
+        targetSdk 36
+        // Unity calls these Java methods by name through JNI, outside R8's call graph.
+        consumerProguardFiles 'consumer-rules.pro'
+    }
     sourceSets { main { manifest.srcFile 'AndroidManifest.xml'; java.srcDirs = ['src']; res.srcDirs = ['res'] } }
     compileOptions { sourceCompatibility JavaVersion.VERSION_11; targetCompatibility JavaVersion.VERSION_11 }
 }

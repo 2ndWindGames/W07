@@ -29,6 +29,7 @@ public static class RunBeatBuild
         {
             if (command == "setup") Setup();
             else if (command == "apk") BuildAndroid();
+            else if (command == "qa-apk") BuildQAAndroid();
             else if (command == "aab") BuildStoreBundle();
             else if (command == "windows") BuildWindows();
             else if (command == "test") RunBeatChecks.Run();
@@ -41,6 +42,7 @@ public static class RunBeatBuild
             else if (command == "refresh") AssetDatabase.Refresh();
             else if (command == "logs") DumpLogs();
             else if (command == "store") RunBeatStoreAssets.Begin();
+            else throw new ArgumentException("Unknown editor command: " + command);
             File.WriteAllText("BuildArtifacts/editor-result.txt", command + " OK " + DateTime.UtcNow.ToString("o"));
         }
         catch (Exception ex) { File.WriteAllText("BuildArtifacts/editor-result.txt", command + " FAILED\n" + ex); Debug.LogException(ex); }
@@ -63,7 +65,8 @@ public static class RunBeatBuild
         EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
         PlayerSettings.companyName = "SecondWindGames"; PlayerSettings.productName = "런비트";
         PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android,"com.secondwindgames.runbeat");
-        PlayerSettings.bundleVersion = "1.0.0"; PlayerSettings.Android.bundleVersionCode = 1;
+        if (string.IsNullOrEmpty(PlayerSettings.bundleVersion) || PlayerSettings.bundleVersion == "1.0.0") PlayerSettings.bundleVersion = "1.0.1";
+        PlayerSettings.Android.bundleVersionCode = Math.Max(2, PlayerSettings.Android.bundleVersionCode);
         PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
         PlayerSettings.allowedAutorotateToPortrait = true; PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
         PlayerSettings.allowedAutorotateToLandscapeLeft = false; PlayerSettings.allowedAutorotateToLandscapeRight = false;
@@ -111,11 +114,26 @@ public static class RunBeatBuild
         Debug.Log("RunBeat Android portrait configured; W05 splash applied.");
     }
     [MenuItem("RunBeat/Build Android APK")]
-    public static void BuildAndroid() { Setup(); EditorUserBuildSettings.buildAppBundle = false; Build(BuildTarget.Android,"Builds/Android/RunBeat-1.0.0.apk"); }
+    public static void BuildAndroid() { Setup(); EditorUserBuildSettings.buildAppBundle = false; Build(BuildTarget.Android,"Builds/Android/RunBeat-" + PlayerSettings.bundleVersion + ".apk"); }
+    public static void BuildQAAndroid()
+    {
+        bool customSigning = PlayerSettings.Android.useCustomKeystore;
+        try { PlayerSettings.Android.useCustomKeystore = false; BuildAndroid(); }
+        finally { PlayerSettings.Android.useCustomKeystore = customSigning; AssetDatabase.SaveAssets(); }
+    }
     [MenuItem("RunBeat/Build Store AAB")]
     public static void BuildStoreBundle()
     {
         Setup();
+        // Reuse the publisher signing configuration already entered in this Editor.
+        if (PlayerSettings.Android.useCustomKeystore && !string.IsNullOrEmpty(PlayerSettings.Android.keystoreName)
+            && !string.IsNullOrEmpty(PlayerSettings.Android.keyaliasName) && !string.IsNullOrEmpty(PlayerSettings.Android.keystorePass)
+            && !string.IsNullOrEmpty(PlayerSettings.Android.keyaliasPass))
+        {
+            EditorUserBuildSettings.buildAppBundle = true;
+            Build(BuildTarget.Android,"Builds/Android/RunBeat-" + PlayerSettings.bundleVersion + ".aab");
+            return;
+        }
         string keyPath = Environment.GetEnvironmentVariable("RUNBEAT_KEYSTORE");
         string keyAlias = Environment.GetEnvironmentVariable("RUNBEAT_KEY_ALIAS");
         if (string.IsNullOrWhiteSpace(keyPath) || !File.Exists(keyPath) || string.IsNullOrWhiteSpace(keyAlias))
@@ -126,7 +144,7 @@ public static class RunBeatBuild
         {
             PlayerSettings.Android.useCustomKeystore = true; PlayerSettings.Android.keystoreName = keyPath; PlayerSettings.Android.keyaliasName = keyAlias;
             PlayerSettings.Android.keystorePass = storePass; PlayerSettings.Android.keyaliasPass = keyPass;
-            EditorUserBuildSettings.buildAppBundle = true; Build(BuildTarget.Android,"Builds/Android/RunBeat-1.0.0.aab");
+            EditorUserBuildSettings.buildAppBundle = true; Build(BuildTarget.Android,"Builds/Android/RunBeat-" + PlayerSettings.bundleVersion + ".aab");
         }
         finally { PlayerSettings.Android.keystorePass = ""; PlayerSettings.Android.keyaliasPass = ""; }
     }

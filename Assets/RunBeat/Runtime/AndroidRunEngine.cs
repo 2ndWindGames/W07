@@ -10,9 +10,18 @@ namespace RunBeat
         public EngineState State { get; private set; } = new EngineState();
         public AndroidRunEngine()
         {
-            using (var unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer")) activity = unity.GetStatic<AndroidJavaObject>("currentActivity");
-            bridge = new AndroidJavaClass("com.secondwindgames.runbeat.RunBeatService");
-            bridge.CallStatic("initialize", activity); Tick();
+            try
+            {
+                using (var unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer")) activity = unity.GetStatic<AndroidJavaObject>("currentActivity");
+                bridge = new AndroidJavaClass("com.secondwindgames.runbeat.RunBeatService");
+                bridge.CallStatic("initialize", activity);
+                ReadState();
+            }
+            catch
+            {
+                bridge?.Dispose(); activity?.Dispose();
+                throw;
+            }
         }
         void Command(string action, string payload = "")
         {
@@ -28,8 +37,14 @@ namespace RunBeat
         public void ClearHistory() => Command("clear");
         public void Tick()
         {
-            try { State = JsonUtility.FromJson<EngineState>(bridge.CallStatic<string>("snapshot", activity)) ?? State; }
+            try { ReadState(); }
             catch (Exception ex) { State.error = "운동 상태를 확인하지 못했어요."; Debug.LogWarning(ex.Message); }
+        }
+        void ReadState()
+        {
+            var state = JsonUtility.FromJson<EngineState>(bridge.CallStatic<string>("snapshot", activity));
+            if (state == null || state.current == null || state.history == null) throw new InvalidOperationException("Invalid RunBeat engine snapshot.");
+            State = state;
         }
         public bool OpenMusic(string videoId)
         {

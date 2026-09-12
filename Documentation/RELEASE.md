@@ -1,15 +1,15 @@
 # 런비트 Android
 
-Unity 6000.3.23f1, Android 8.0 이상, ARM64, IL2CPP, target SDK 36, 세로 화면으로 구성했습니다. 기본 패키지 이름은 `com.secondwindgames.runbeat`, 버전은 `1.0.0 (1)`입니다. 첫 배포 전에 실제 사용할 패키지 이름과 업로드 키를 확정해야 합니다.
+Unity 6000.3.23f1, Android 8.0 이상, ARM64, IL2CPP, target SDK 36, 세로 화면으로 구성했습니다. 패키지 이름은 `com.secondwindgames.runbeat`, 수정 버전은 `1.0.1 (2)`입니다. 이후 빌드에서 더 높은 버전 코드를 설정하면 Setup이 낮추지 않습니다.
 
 ## 실행과 빌드
 
 1. Unity에서 `Assets/RunBeat/Scenes/RunBeat.unity`를 엽니다.
 2. `RunBeat > Setup Android Portrait`로 플랫폼·스플래시·아이콘 설정을 적용합니다.
-3. `RunBeat > Build Android APK`로 `Builds/Android/RunBeat-1.0.0.apk`를 만듭니다.
+3. `RunBeat > Build Android APK`로 `Builds/Android/RunBeat-1.0.1.apk`를 만듭니다.
 4. 설치 후 첫 운동 시작 시 알림 권한을 허용하면 알림창에서 운동 제어가 가능합니다. 거부해도 앱 내 제어는 동작합니다.
 
-스토어 AAB는 Unity를 실행하는 프로세스에 다음 환경 변수를 설정하고 `RunBeat > Build Store AAB`로 만듭니다. 비밀번호를 소스 파일이나 버전 관리에 적지 않습니다.
+스토어 AAB는 Player Settings > Publishing Settings에 기존 게시자 키와 비밀번호를 입력하고 `RunBeat > Build Store AAB`로 만듭니다. 출력은 `Builds/Android/RunBeat-1.0.1.aab`입니다. 또는 Unity를 실행하는 프로세스에 다음 환경 변수를 설정합니다. 비밀번호를 소스 파일이나 버전 관리에 적지 않습니다.
 
 - `RUNBEAT_KEYSTORE`: 게시자의 업로드 keystore 절대 경로
 - `RUNBEAT_KEY_ALIAS`: 업로드 키 별칭

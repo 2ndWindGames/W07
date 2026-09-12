@@ -1,4 +1,4 @@
-param([string]$Apk = (Join-Path $PSScriptRoot '../Builds/Android/RunBeat-1.0.0.apk'))
+param([string]$Apk = (Join-Path $PSScriptRoot '../Builds/Android/RunBeat-1.0.1.apk'))
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path $PSScriptRoot -Parent
 $androidRoot = 'C:\Program Files\Unity\Hub\Editor\6000.3.23f1\Editor\Data\PlaybackEngines\AndroidPlayer'

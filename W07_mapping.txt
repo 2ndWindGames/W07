@@ -3,8 +3,8 @@
 # min_api: 26
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: b51042baea2d2a0a6915ce761b589a0d381e5b2ceb7dd09366412c518e1d10c7
-# pg_map_hash: SHA-256 b51042baea2d2a0a6915ce761b589a0d381e5b2ceb7dd09366412c518e1d10c7
+# pg_map_id: fb50c842e32381baaa7650b11b0254ca4aad19a53638ccf922ea055d0c22fef1
+# pg_map_hash: SHA-256 fb50c842e32381baaa7650b11b0254ca4aad19a53638ccf922ea055d0c22fef1
 android.window.OnBackInvokedCallback -> android.window.OnBackInvokedCallback:
 # {"id":"com.android.tools.r8.synthesized"}
     void <clinit>() -> <clinit>
@@ -101,7 +101,8 @@ com.secondwindgames.runbeat.RunBeatService -> com.secondwindgames.runbeat.RunBea
     java.lang.Object LOCK -> s
     org.json.JSONObject state -> t
     android.content.Context app -> u
-    java.lang.String loadWarning -> v
+    com.secondwindgames.runbeat.RunBeatService instance -> v
+    java.lang.String loadWarning -> w
     1:8:void <clinit>():20:20 -> <clinit>
     1:3:void <init>():19:19 -> <init>
     4:16:void <init>():27:27 -> <init>
@@ -133,6 +134,26 @@ com.secondwindgames.runbeat.RunBeatService -> com.secondwindgames.runbeat.RunBea
     14:23:void changeTarget(int,long):200:200 -> c
     24:48:void changeTarget(int,long):201:201 -> c
     49:63:void changeTarget(int,long):202:202 -> c
+    1:3:void command(android.content.Context,java.lang.String,java.lang.String):89:89 -> command
+    4:6:void command(android.content.Context,java.lang.String,java.lang.String):90:90 -> command
+    7:23:void command(android.content.Context,java.lang.String,java.lang.String):91:91 -> command
+    24:48:void command(android.content.Context,java.lang.String,java.lang.String):98:98 -> command
+    49:50:void command(android.content.Context,java.lang.String,java.lang.String):99:100 -> command
+    51:66:void command(android.content.Context,java.lang.String,java.lang.String):100:100 -> command
+    67:83:void command(android.content.Context,java.lang.String,java.lang.String):101:101 -> command
+    84:87:void command(android.content.Context,java.lang.String,java.lang.String):102:102 -> command
+    88:91:void command(android.content.Context,java.lang.String,java.lang.String):101:101 -> command
+    92:97:void command(android.content.Context,java.lang.String,java.lang.String):92:92 -> command
+    98:105:org.json.JSONArray history():60:60 -> command
+    98:105:void command(android.content.Context,java.lang.String,java.lang.String):93 -> command
+    106:111:void command(android.content.Context,java.lang.String,java.lang.String):93:93 -> command
+    112:119:org.json.JSONArray history():60:60 -> command
+    112:119:void command(android.content.Context,java.lang.String,java.lang.String):93 -> command
+    120:149:void command(android.content.Context,java.lang.String,java.lang.String):93:93 -> command
+    150:156:void command(android.content.Context,java.lang.String,java.lang.String):94:94 -> command
+    157:197:void command(android.content.Context,java.lang.String,java.lang.String):95:95 -> command
+    198:202:void command(android.content.Context,java.lang.String,java.lang.String):96:96 -> command
+    203:204:void command(android.content.Context,java.lang.String,java.lang.String):99:99 -> command
     1:18:void closeSegment():121:121 -> d
     19:24:void closeSegment():122:122 -> d
     25:32:void closeSegment():124:124 -> d
@@ -157,116 +178,90 @@ com.secondwindgames.runbeat.RunBeatService -> com.secondwindgames.runbeat.RunBea
     14:20:void halt():253:253 -> g
     21:26:void halt():254:254 -> g
     27:47:void halt():255:255 -> g
-    1:15:boolean is(java.lang.String):61:61 -> h
-    1:29:boolean isOpen():62:62 -> i
-    1:19:android.app.Notification notification():268:268 -> j
-    20:63:android.app.Notification notification():269:269 -> j
-    64:75:android.app.Notification notification():270:270 -> j
-    76:123:android.app.Notification notification():271:271 -> j
-    124:160:android.app.Notification notification():272:272 -> j
-    161:169:android.app.Notification notification():273:273 -> j
-    170:180:android.app.PendingIntent action(java.lang.String):264:264 -> j
-    170:180:android.app.Notification notification():273 -> j
-    181:190:android.app.PendingIntent action(java.lang.String):265:265 -> j
-    181:190:android.app.Notification notification():273 -> j
-    191:203:android.app.Notification notification():273:273 -> j
-    204:217:android.app.PendingIntent action(java.lang.String):264:264 -> j
-    204:217:android.app.Notification notification():274 -> j
-    218:224:android.app.PendingIntent action(java.lang.String):265:265 -> j
-    218:224:android.app.Notification notification():274 -> j
-    225:239:android.app.Notification notification():274:274 -> j
-    240:246:android.app.Notification notification():275:275 -> j
-    247:276:android.app.Notification notification():276:276 -> j
-    277:281:android.app.Notification notification():277:277 -> j
-    1:73:void pause(java.lang.String):258:258 -> k
-    1:11:void put(org.json.JSONObject,java.lang.String,java.lang.Object):58:58 -> l
-    1:3:boolean save():114:114 -> m
-    4:26:boolean save():116:116 -> m
-    27:42:boolean save():117:117 -> m
-    43:58:boolean save():118:118 -> m
-    1:15:void startSession(org.json.JSONObject):183:183 -> n
-    16:25:int com.secondwindgames.runbeat.RhythmSynth.clamp(int):18:18 -> n
-    16:25:void startSession(org.json.JSONObject):183 -> n
-    26:27:void startSession(org.json.JSONObject):183:183 -> n
-    28:47:void startSession(org.json.JSONObject):184:184 -> n
-    48:56:java.lang.String now():55:55 -> n
-    48:56:void startSession(org.json.JSONObject):184 -> n
-    57:74:java.lang.String now():56:56 -> n
-    57:74:void startSession(org.json.JSONObject):184 -> n
-    75:89:void startSession(org.json.JSONObject):184:184 -> n
-    90:114:void startSession(org.json.JSONObject):185:185 -> n
-    115:135:void startSession(org.json.JSONObject):186:186 -> n
-    136:157:void startSession(org.json.JSONObject):187:187 -> n
-    158:194:void startSession(org.json.JSONObject):188:188 -> n
-    195:220:void startSession(org.json.JSONObject):189:189 -> n
-    221:235:void startSession(org.json.JSONObject):190:190 -> n
-    236:249:void startSession(org.json.JSONObject):192:192 -> n
-    1:90:void stopSession(boolean):261:261 -> o
+    1:34:org.json.JSONObject idle():63:63 -> h
+    1:15:boolean is(java.lang.String):61:61 -> i
+    1:3:void initialize(android.content.Context):66:66 -> initialize
+    4:12:void initialize(android.content.Context):67:67 -> initialize
+    13:19:void initialize(android.content.Context):68:68 -> initialize
+    20:27:void initialize(android.content.Context):70:70 -> initialize
+    28:32:void initialize(android.content.Context):71:71 -> initialize
+    33:46:void initialize(android.content.Context):72:72 -> initialize
+    47:52:void initialize(android.content.Context):73:73 -> initialize
+    53:63:org.json.JSONArray history():60:60 -> initialize
+    53:63:void initialize(android.content.Context):73 -> initialize
+    64:71:void initialize(android.content.Context):73:73 -> initialize
+    72:79:void initialize(android.content.Context):71:71 -> initialize
+    80:86:void initialize(android.content.Context):75:75 -> initialize
+    87:88:void initialize(android.content.Context):74:74 -> initialize
+    89:132:void initialize(android.content.Context):76:76 -> initialize
+    133:141:void initialize(android.content.Context):77:77 -> initialize
+    142:147:void initialize(android.content.Context):78:78 -> initialize
+    148:169:void initialize(android.content.Context):79:79 -> initialize
+    170:172:void initialize(android.content.Context):80:80 -> initialize
+    173:176:void initialize(android.content.Context):82:82 -> initialize
+    1:29:boolean isOpen():62:62 -> j
+    1:19:android.app.Notification notification():268:268 -> k
+    20:63:android.app.Notification notification():269:269 -> k
+    64:75:android.app.Notification notification():270:270 -> k
+    76:123:android.app.Notification notification():271:271 -> k
+    124:160:android.app.Notification notification():272:272 -> k
+    161:169:android.app.Notification notification():273:273 -> k
+    170:180:android.app.PendingIntent action(java.lang.String):264:264 -> k
+    170:180:android.app.Notification notification():273 -> k
+    181:190:android.app.PendingIntent action(java.lang.String):265:265 -> k
+    181:190:android.app.Notification notification():273 -> k
+    191:203:android.app.Notification notification():273:273 -> k
+    204:217:android.app.PendingIntent action(java.lang.String):264:264 -> k
+    204:217:android.app.Notification notification():274 -> k
+    218:224:android.app.PendingIntent action(java.lang.String):265:265 -> k
+    218:224:android.app.Notification notification():274 -> k
+    225:239:android.app.Notification notification():274:274 -> k
+    240:246:android.app.Notification notification():275:275 -> k
+    247:276:android.app.Notification notification():276:276 -> k
+    277:281:android.app.Notification notification():277:277 -> k
+    1:73:void pause(java.lang.String):258:258 -> l
+    1:11:void put(org.json.JSONObject,java.lang.String,java.lang.Object):58:58 -> m
+    1:3:boolean save():114:114 -> n
+    4:26:boolean save():116:116 -> n
+    27:42:boolean save():117:117 -> n
+    43:58:boolean save():118:118 -> n
+    1:21:void notificationSettings(android.app.Activity):111:111 -> notificationSettings
+    1:15:void startSession(org.json.JSONObject):183:183 -> o
+    16:25:int com.secondwindgames.runbeat.RhythmSynth.clamp(int):18:18 -> o
+    16:25:void startSession(org.json.JSONObject):183 -> o
+    26:27:void startSession(org.json.JSONObject):183:183 -> o
+    28:47:void startSession(org.json.JSONObject):184:184 -> o
+    48:56:java.lang.String now():55:55 -> o
+    48:56:void startSession(org.json.JSONObject):184 -> o
+    57:74:java.lang.String now():56:56 -> o
+    57:74:void startSession(org.json.JSONObject):184 -> o
+    75:89:void startSession(org.json.JSONObject):184:184 -> o
+    90:114:void startSession(org.json.JSONObject):185:185 -> o
+    115:135:void startSession(org.json.JSONObject):186:186 -> o
+    136:157:void startSession(org.json.JSONObject):187:187 -> o
+    158:194:void startSession(org.json.JSONObject):188:188 -> o
+    195:220:void startSession(org.json.JSONObject):189:189 -> o
+    221:235:void startSession(org.json.JSONObject):190:190 -> o
+    236:249:void startSession(org.json.JSONObject):192:192 -> o
     1:2:android.os.IBinder onBind(android.content.Intent):0:0 -> onBind
-    1:3:void onCreate():137:137 -> onCreate
-    4:6:void initialize(android.content.Context):66:66 -> onCreate
-    4:6:void onCreate():137 -> onCreate
-    7:18:void initialize(android.content.Context):67:67 -> onCreate
-    7:18:void onCreate():137 -> onCreate
-    19:24:void initialize(android.content.Context):68:68 -> onCreate
-    19:24:void onCreate():137 -> onCreate
-    25:32:void initialize(android.content.Context):70:70 -> onCreate
-    25:32:void onCreate():137 -> onCreate
-    33:37:void initialize(android.content.Context):71:71 -> onCreate
-    33:37:void onCreate():137 -> onCreate
-    38:51:void initialize(android.content.Context):72:72 -> onCreate
-    38:51:void onCreate():137 -> onCreate
-    52:57:void initialize(android.content.Context):73:73 -> onCreate
-    52:57:void onCreate():137 -> onCreate
-    58:68:org.json.JSONArray history():60:60 -> onCreate
-    58:68:void initialize(android.content.Context):73 -> onCreate
-    58:68:void onCreate():137 -> onCreate
-    69:76:void initialize(android.content.Context):73:73 -> onCreate
-    69:76:void onCreate():137 -> onCreate
-    77:84:void initialize(android.content.Context):71:71 -> onCreate
-    77:84:void onCreate():137 -> onCreate
-    85:91:void initialize(android.content.Context):75:75 -> onCreate
-    85:91:void onCreate():137 -> onCreate
-    92:93:void initialize(android.content.Context):74:74 -> onCreate
-    92:93:void onCreate():137 -> onCreate
-    94:117:void initialize(android.content.Context):76:76 -> onCreate
-    94:117:void onCreate():137 -> onCreate
-    118:150:org.json.JSONObject idle():63:63 -> onCreate
-    118:150:void initialize(android.content.Context):76 -> onCreate
-    118:150:void onCreate():137 -> onCreate
-    151:165:void initialize(android.content.Context):76:76 -> onCreate
-    151:165:void onCreate():137 -> onCreate
-    166:174:void initialize(android.content.Context):77:77 -> onCreate
-    166:174:void onCreate():137 -> onCreate
-    175:180:void initialize(android.content.Context):78:78 -> onCreate
-    175:180:void onCreate():137 -> onCreate
-    181:202:void initialize(android.content.Context):79:79 -> onCreate
-    181:202:void onCreate():137 -> onCreate
-    203:205:void initialize(android.content.Context):80:80 -> onCreate
-    203:205:void onCreate():137 -> onCreate
-    206:206:void initialize(android.content.Context):82:82 -> onCreate
-    206:206:void onCreate():137 -> onCreate
-    207:216:void onCreate():138:138 -> onCreate
-    217:226:void onCreate():139:139 -> onCreate
-    227:234:void onCreate():140:140 -> onCreate
-    235:245:void onCreate():141:141 -> onCreate
-    246:254:void onCreate():142:142 -> onCreate
-    255:262:void onCreate():143:143 -> onCreate
-    263:267:void onCreate():149:149 -> onCreate
-    268:284:void onCreate():150:150 -> onCreate
-    285:293:void onCreate():151:151 -> onCreate
-    294:309:void onCreate():152:152 -> onCreate
-    310:319:void onCreate():153:153 -> onCreate
-    320:335:void onCreate():154:154 -> onCreate
-    336:338:void onCreate():155:155 -> onCreate
-    339:340:void onCreate():156:156 -> onCreate
-    341:346:void onCreate():157:157 -> onCreate
-    347:358:void onCreate():156:156 -> onCreate
-    359:368:void onCreate():157:157 -> onCreate
-    369:376:void onCreate():158:158 -> onCreate
-    377:378:void initialize(android.content.Context):82:82 -> onCreate
-    377:378:void onCreate():137 -> onCreate
-    1:45:void onDestroy():288:288 -> onDestroy
+    1:8:void onCreate():137:137 -> onCreate
+    9:18:void onCreate():138:138 -> onCreate
+    19:29:void onCreate():139:139 -> onCreate
+    30:37:void onCreate():140:140 -> onCreate
+    38:48:void onCreate():141:141 -> onCreate
+    49:57:void onCreate():142:142 -> onCreate
+    58:65:void onCreate():143:143 -> onCreate
+    66:71:void onCreate():149:149 -> onCreate
+    72:88:void onCreate():150:150 -> onCreate
+    89:97:void onCreate():151:151 -> onCreate
+    98:111:void onCreate():152:152 -> onCreate
+    112:123:void onCreate():153:153 -> onCreate
+    124:139:void onCreate():154:154 -> onCreate
+    140:142:void onCreate():155:155 -> onCreate
+    143:162:void onCreate():156:156 -> onCreate
+    163:170:void onCreate():157:157 -> onCreate
+    171:176:void onCreate():158:158 -> onCreate
+    1:47:void onDestroy():288:288 -> onDestroy
     1:3:int onStartCommand(android.content.Intent,int,int):161:161 -> onStartCommand
     4:20:int onStartCommand(android.content.Intent,int,int):163:163 -> onStartCommand
     21:32:int onStartCommand(android.content.Intent,int,int):164:164 -> onStartCommand
@@ -294,17 +289,24 @@ com.secondwindgames.runbeat.RunBeatService -> com.secondwindgames.runbeat.RunBea
     193:206:int onStartCommand(android.content.Intent,int,int):177:177 -> onStartCommand
     207:215:int onStartCommand(android.content.Intent,int,int):178:178 -> onStartCommand
     216:219:int onStartCommand(android.content.Intent,int,int):179:179 -> onStartCommand
-    1:19:android.util.AtomicFile storage():64:64 -> p
-    1:51:void updateNotification():280:280 -> q
-    52:62:void updateNotification():281:281 -> q
-    63:68:void updateNotification():282:282 -> q
-    69:86:void updateNotification():283:283 -> q
-    87:108:void updateNotification():284:284 -> q
-    109:111:void updateNotification():283:283 -> q
-    112:171:void updateNotification():285:285 -> q
-    172:189:void updateNotification():286:286 -> q
-    1:2:void updateTime():248:248 -> r
-    3:89:void updateTime():249:249 -> r
+    1:14:boolean openMusic(android.app.Activity,java.lang.String):105:105 -> openMusic
+    15:30:boolean openMusic(android.app.Activity,java.lang.String):106:106 -> openMusic
+    31:51:boolean openMusic(android.app.Activity,java.lang.String):107:107 -> openMusic
+    52:54:boolean openMusic(android.app.Activity,java.lang.String):106:106 -> openMusic
+    1:90:void stopSession(boolean):261:261 -> p
+    1:19:android.util.AtomicFile storage():64:64 -> q
+    1:51:void updateNotification():280:280 -> r
+    52:62:void updateNotification():281:281 -> r
+    63:68:void updateNotification():282:282 -> r
+    69:86:void updateNotification():283:283 -> r
+    87:108:void updateNotification():284:284 -> r
+    109:111:void updateNotification():283:283 -> r
+    112:171:void updateNotification():285:285 -> r
+    172:189:void updateNotification():286:286 -> r
+    1:2:void updateTime():248:248 -> s
+    3:89:void updateTime():249:249 -> s
+    1:3:java.lang.String snapshot(android.content.Context):85:85 -> snapshot
+    4:26:java.lang.String snapshot(android.content.Context):86:86 -> snapshot
 com.secondwindgames.runbeat.RunBeatService$$ExternalSyntheticApiModelOutline0 -> a.b:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
